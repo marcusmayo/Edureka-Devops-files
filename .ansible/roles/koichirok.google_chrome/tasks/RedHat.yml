@@ -1,0 +1,18 @@
+---
+# tasks for RedHat ansible_os_family
+
+- name: Check exsistence of google-chrome repository
+  stat:
+    path: /etc/yum.reos.d/google-chrome.repo
+  register: google_chrome_repo_file
+
+- name: Ensure google-chrome package is installed
+  package:
+    name:
+      '{% if google_chrome_repo_file.stat.exists -%}
+         {{ google_chrome_package_name }}
+       {%- else -%}
+         {{ "%s%s_current_%s.rpm" | format(google_chrome_download_url,
+                                           google_chrome_package_name,
+                                           ansible_userspace_architecture) }}
+       {%- endif %}'

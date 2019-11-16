@@ -1,0 +1,5 @@
+---
+# defaults file for google-chrome
+
+# package name: stable, beta, unstable
+google_chrome_package_name: google-chrome-stable

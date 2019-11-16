@@ -1,0 +1,6 @@
+---
+# tasks file for google-chrome
+
+- name: import tasks for RedHat
+  import_tasks: RedHat.yml
+  when: ansible_os_family == "RedHat"

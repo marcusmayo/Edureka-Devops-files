@@ -1,0 +1,6 @@
+---
+- hosts: all
+  vars:
+          applications:
+                  - google-chrome
+                  - chromedriver
